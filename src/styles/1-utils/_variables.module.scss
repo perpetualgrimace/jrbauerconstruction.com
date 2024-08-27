@@ -2,14 +2,15 @@
 // TYPOGRAPHY
 //////////////////////////////////
 
-$body-font: "Work Sans", sans-serif;
-$title-font: "Oswald", impact, sans-serif;
-$subhead-font: $title-font;
+$body-font: museo-sans, sans-serif;
+$title-font: museo-slab, serif;
+$subhead-font: $body-font;
 
-$body-weight: 400;
+$body-weight: 300;
 $bold-weight: 700;
 $subhead-weight: 300;
-$title-weight: 600;
+$title-weight: 700;
+$heavy-weight: 900;
 
 $font-size-xl: 4.9rem; // 98px
 $font-size-lg: 3rem; // 60px
