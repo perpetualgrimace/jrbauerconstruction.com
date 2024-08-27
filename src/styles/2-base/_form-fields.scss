@@ -18,7 +18,7 @@ textarea {
   width: 100%;
   padding: 0.75em 0.875em 0.875em;
   background-color: $black;
-  border: 1px solid $walnut;
+  border: 1px solid $navy-light;
   font-size: $font-size-xs;
   transition: background-color 0.2s ease-out, border-color 0.2s ease-out,
     color 0.2s ease-out;
@@ -28,7 +28,7 @@ textarea {
     background-color: rgba($black, 0.666);
   }
   &:hover {
-    border-color: $gold;
+    border-color: $aqua;
   }
   &:focus {
     border-color: $white;
@@ -54,13 +54,13 @@ select {
   height: 0.5em;
   border-left: 0.375em solid transparent;
   border-right: 0.375em solid transparent;
-  border-top: 0.375em solid $walnut;
+  border-top: 0.375em solid $navy-light;
   pointer-events: none;
   transition: border-color 0.2s ease-out;
 }
 select:hover + .select-indicator,
 select:focus + .select-indicator {
-  border-top-color: $gold;
+  border-top-color: $aqua;
 }
 
 .control {
@@ -81,7 +81,7 @@ select:focus + .select-indicator {
   height: 1rem;
   margin-top: 1px;
   background-color: $black;
-  border: 1px solid $brown;
+  border: 1px solid $navy-medium;
   border-radius: $radius-md;
   transition: background-color 0.2s ease-out, border-color 0.2s ease-out,
     color 0.2s ease-out;
@@ -89,13 +89,13 @@ select:focus + .select-indicator {
 
 /* Hover state */
 .control:hover .control-indicator {
-  background-color: $brown;
+  background-color: $navy-medium;
 }
 
 /* Checked state */
 .control input[type="checkbox"]:checked ~ .control-indicator {
-  border-color: $gold;
-  background-color: $gold;
+  border-color: $aqua;
+  background-color: $aqua;
 
   &:after {
     @include absolute-center;
@@ -107,7 +107,7 @@ select:focus + .select-indicator {
   }
 
   &:hover {
-    background-color: lighten($gold, 12.5%);
+    background-color: lighten($aqua, 12.5%);
   }
 }
 

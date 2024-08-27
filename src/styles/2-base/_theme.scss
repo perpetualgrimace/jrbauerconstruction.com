@@ -4,8 +4,8 @@ html {
 }
 
 a {
-  color: $gold;
-  text-decoration-color: $brown;
+  color: $aqua;
+  text-decoration-color: $navy-medium;
   text-decoration-thickness: 0.125em;
   text-underline-offset: 0.25em;
   transition: color 0.2s ease-out;
@@ -24,13 +24,13 @@ h4,
 h5,
 h6,
 .u-heading {
-  color: $gold;
+  color: $aqua;
 }
 
 a:focus-visible,
 button:focus-visible,
 [tabindex]:focus-visible {
-  outline: 3px dotted rgba($gold, 0.5);
+  outline: 3px dotted rgba($aqua, 0.5);
   outline-offset: 3px;
 }
 a:focus:not(:focus-visible),
@@ -41,9 +41,9 @@ button:focus:not(:focus-visible),
 
 ::selection {
   color: $white;
-  background-color: rgba($gold, 0.6);
+  background-color: rgba($aqua, 0.6);
 }
 
 main {
-  background-color: $night;
+  background-color: $navy-dark;
 }
