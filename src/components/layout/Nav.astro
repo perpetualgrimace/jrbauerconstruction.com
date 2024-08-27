@@ -4,20 +4,28 @@ import NavLinks from "./NavLinks.astro";
 ---
 
 <nav class="nav">
-	<a class="nav-logo" href="/" draggable="false">
-		<RetinaImg
-			className="nav-logo-img"
-			file="logo-horizontal"
-			alt="J.R. Bauer Construction (home)"
-		/>
-	</a>
-	<NavLinks />
+	<div class="nav-inner">
+		<a class="nav-logo" href="/" draggable="false">
+			<RetinaImg
+				className="nav-logo-img"
+				file="logo-horizontal"
+				alt="J.R. Bauer Construction (home)"
+			/>
+		</a>
+		<NavLinks />
+	</div>
 </nav>
 
 <style is:global lang="scss">
 	@import '../../styles/global';
 
 	.nav {
+		background-color: $navy-dark;
+		background-image: linear-gradient(to right, $navy-medium, $navy-dark);
+
+	}
+
+	.nav-inner {
 		@include container;
 		display: flex;
 		align-items: center;
@@ -25,11 +33,12 @@ import NavLinks from "./NavLinks.astro";
 		flex-wrap: wrap;
 		padding-left: $sp-lg;
 		padding-right: $sp-lg;
-		padding-bottom: $sp-xxs;
 	}
 
 	.nav-logo {
 		margin-right: $sp-lg;
+		margin-top: 1px;
 		left: -$sp-xxs;
+		width: 7.5rem;
 	}
 </style>

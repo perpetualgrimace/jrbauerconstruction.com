@@ -5,15 +5,17 @@ const links = [
 	{title: "Home", href: "/"},
 	{title: "About", href: "/about/", a11y: "J.R. Bauer Construction"},
 	{title: "Careers", href: "/careers/"},
-	{title: "Contact us", href: "/contact/"}
+	{title: "Contact us", href: "/contact/", isButton: true}
 ];
+
+const { isFooter } = Astro.props;
 ---
 
 <ul class="nav-links">
   {links.map(link => (
     <li class="nav-item">
       <a
-        class="nav-link u-heading u-font-xxs"
+        class={`nav-link u-font-sm ${link.isButton && !isFooter ? "button" : ""}`}
         href={link.href}
         aria-current={currPath === link.href ? "page" : null}
       >
@@ -31,6 +33,7 @@ const links = [
 	.nav-links {
 		display: flex;
 		flex-wrap: wrap;
+		align-items: center;
 	}
 
 	.nav-item:not(:last-child) {
@@ -38,16 +41,19 @@ const links = [
 	}
 
 	.nav-link {
-		text-transform: uppercase;
 		text-decoration: none;
-		padding: 0.5em;
+		padding: 0.5em 0.625em 0.5em 0.625em;
+		color: $white;
+		border-radius: $radius-sm;
 
-		&:not([aria-current="page"]) {
-			color: $navy-light;
+		&[aria-current="page"]:not(.button) {
+			background: $navy-light;
 		}
 
-		&:hover, &:focus {
-			color: $white;
+		&:not([aria-current="page"]):not(.button) {
+			&:hover, &:focus {
+				color: $aqua;
+			}
 		}
 	}
 </style>
