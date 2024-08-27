@@ -1,0 +1,79 @@
+---
+import RetinaImg from "../RetinaImg.astro";
+import Button from "../Button.astro";
+
+const {slug, props = {}} = Astro.props;
+const {title, headline, subhead, showButton} = props;
+---
+
+<div class="hero">
+  <div class={`hero-img-wrapper ${slug}-hero-img-wrapper`}>
+    <RetinaImg className="hero-img u-mh-auto" file={`hero/${slug}-hero`} extension="jpg" />
+  </div>
+
+  <div class="hero-caption u-mh-auto u-text-l-c">
+    <h1 class="hero-title u-mb-xl">{headline || title}</h1>
+    <p class="hero-paragraph u-font-md">{subhead}</p>
+    {showButton &&
+      <Button href="contact">
+        Get started
+      </Button>
+    }
+  </div>
+</div>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+  .hero {
+    position: static;
+  }
+
+  .hero-img-wrapper {
+    width: 100%;
+    height: calc(35vh + 20vw);
+  }
+  .home-hero-img-wrapper {
+    height: calc(50vh + 20vw);
+  }
+
+  .hero-img {
+    @include absolute-expand;
+    object-fit: cover;
+  }
+
+  .hero-img-wrapper:after {
+    @include pseudo;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 33%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent 0%, $black 100%);
+  }
+
+  .hero-caption {
+    padding: $sp-xl $sp-xl 0 $sp-xl;
+    width: 55rem;
+    max-width: 100%;
+    margin-top: -12rem;
+    z-index: 1;
+
+    > .button {
+      margin-top: 2.25em;
+    }
+  }
+
+  .hero:after {
+    @include pseudo;
+    height: $sp-xxl;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: $black;
+    border-radius: 0 0 50% 50%;
+  }
+</style>

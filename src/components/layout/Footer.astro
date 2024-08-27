@@ -1,0 +1,58 @@
+---
+import RetinaImg from "../RetinaImg.astro";
+import NavLinks from "./NavLinks.astro";
+
+const currYear =  new Date().getFullYear();
+---
+
+<footer class="footer u-text-c">
+	<a class="footer-logo u-mb-md" href="/" draggable="false">
+		<RetinaImg
+			className="footer-logo-img u-mh-auto"
+			file="logo-vertical"
+			alt="J.R. Bauer Construction (home)"
+		/>
+	</a>
+	<NavLinks />
+  <p class="footer-colophon u-font-xxxs u-mb-sm">
+    All content copyright ©2023-{currYear} Global Entertainment Fabrication. All rights reserved.
+  </p>
+  <p class="footer-colophon u-font-xxxs">
+    Website and brand identity by <a href="https://jamesferrell.me" target="_blank">James Ferrell</a>.
+  </p>
+</footer>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+  .footer {
+    padding: 0 $sp-xl $sp-xl $sp-xl;
+  }
+
+  .footer-logo {
+    display: block;
+  }
+
+  .footer > .nav-links {
+    justify-content: center;
+    margin-bottom: $sp-xxl;
+    transform: translatey(0.25em); // fudgin'
+  }
+
+  .footer-colophon {
+    color: $walnut;
+  }
+
+  .footer:before {
+    @include pseudo;
+    height: $sp-xxl;
+    width: 100%;
+    position: absolute;
+    top: -$sp-xxl;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background: $black;
+    border-radius: 50% 50% 0 0;
+  }
+</style>

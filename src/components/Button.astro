@@ -1,0 +1,52 @@
+---
+const {
+  href = undefined,
+  type = undefined,
+  isBlock = false,
+  fontSize = "xs"
+} = Astro.props;
+---
+
+{type ?
+  <button class={`button${isBlock ? ' is-block' : ''}
+  u-font-${fontSize}`} {type}>
+		<slot />
+	</button>
+: <a class={`button${isBlock ? ' is-block' : ''}
+u-font-${fontSize}`} {href}>
+    <slot />
+  </a>
+}
+
+<style is:global lang="scss">
+  @import '../styles/global';
+
+	.button {
+		@include body-text;
+		display: inline-block;
+		width: max-content;
+		font-size: $font-size-md;
+		font-weight: $bold-weight;
+		text-decoration: none;
+		margin-top: $sp-md;
+		padding: 0.375em 1.75em 0.425em 1.75em;
+		color: $black;
+		background-color: $gold;
+		background-image: linear-gradient(
+      to bottom,
+      lighten($gold, 12.5%) 0%,
+      darken($gold, 15%) 100%);
+    border: 1px solid rgba($brown, 0.7);
+		border-radius: $radius-lg;
+
+    &:hover, &:focus {
+      color: $black;
+      background: $white;
+    }
+
+		&.is-block {
+			display: block;
+			width: 100%;
+		}
+	}
+</style>

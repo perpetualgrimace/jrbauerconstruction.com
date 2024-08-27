@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/layout/CTA.astro';
+import SectionTitle from '../components/layout/SectionTitle.astro';
+
+const heroProps = {
+	headline: "Home",
+	subhead: "Home subhead",
+	showButton: true
+}
+---
+
+<Layout slug="home" title="Home" heroProps={heroProps}>
+	<SectionTitle title="Our work" subtitle="Work subhead"/>
+
+	<CTA />
+</Layout>
+
+<!-- <style is:global lang="scss">
+	@import '../styles/global';
+</style> -->

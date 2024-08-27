@@ -1,0 +1,51 @@
+---
+const { title, subtitle } = Astro.props;
+---
+
+<div class="section-title">
+  <div class="section-title-title">
+    <h2 class="section-title-text">
+      {title}
+    </h2>
+  </div>
+
+  {subtitle &&
+    <p class="section-title-subtitle u-text-c u-mh-auto u-mb-md">{subtitle}</p>
+  }
+
+  <slot />
+</div>
+
+<style is:global lang="scss">
+	@import '../../styles/main';
+
+  .section-title {
+    padding-bottom: $sp-xxl;
+
+    &:last-of-type {
+      padding-bottom: $sp-lg;
+    }
+  }
+
+	.section-title-title {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+	}
+
+  .section-title-svg:last-child {
+    transform: rotateY(180deg);
+  }
+
+  .section-title-text {
+    padding: 0.25em 0.325em 0.5em 0.325em;
+    margin: 0;
+  }
+
+  .section-title-subtitle {
+    width: 50rem;
+    max-width: 100%;
+  }
+</style>

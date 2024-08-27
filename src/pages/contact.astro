@@ -1,0 +1,164 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Button from '../components/Button.astro';
+
+const heroProps = {
+	headline: "Contact",
+	subhead: "Contact subhead"
+}
+
+const services = [];
+---
+
+<Layout slug="contact" title="Contact" heroProps={heroProps}>
+	<form
+		class="contact-form u-mb-md"
+		name="jrbcontact"
+		method="POST"
+		netlify-honeypot="bot-field"
+		data-netlify="true"
+	>
+		<input
+			class="contact-input"
+			type="hidden"
+			name="form-name"
+			value="jrbcontact"
+		/>
+
+		<!-- <div class="u-mb-lg contact-field-services">
+			<p class="u-subhead u-font-xs u-mb-0">Services requested</p>
+			<p class="help u-font-xxxs u-mb-lg">
+				Please select any that apply
+			</p>
+
+			<fieldset class="contact-field-services-checkboxes">
+				{services.map((input) => (
+					<label class="control u-mb-sm">
+						<input
+							type="checkbox"
+							name={input.label}
+							value={input.value ? '✅ yes' : 'no thanks'}
+						/>
+						<div class="control-indicator" />
+						{input.label}
+					</label>
+				))}
+			</fieldset>
+		</div> -->
+
+		<div class="contact-inputs u-mb-sm u-m-auto">
+			<div class="contact-group-halfsies">
+				<label class="u-mb-lg contact-field-name">
+					<div class="u-subhead u-mb-xxs">Your name</div>
+					<input
+						name="name"
+						id="name"
+						required
+						placeholder="Firstname Lastname"
+						type="text"
+					/>
+				</label>
+
+				<label class="u-mb-lg contact-field-email">
+					<div class="u-subhead u-mb-xxs">Your email address</div>
+					<input
+						name="email"
+						id="email"
+						required
+						placeholder="email@address.com"
+						type="email"
+					/>
+				</label>
+			</div>
+
+			<label class="u-mb-lg contact-field-message u-mb-xl">
+				<div class="u-subhead u-mb-xxs">How can we help?</div>
+
+				<textarea
+					name="message"
+					id="message"
+					required
+				/>
+			</label>
+
+			<Button isBlock type="submit">Submit</Button>
+		</div>
+	</form>
+</Layout>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+	.contact-field-services-checkboxes {
+		& > .control {
+			margin-bottom: 1.375em;
+		}
+
+		@media (max-width: 799px) {
+			display: flex;
+			flex-wrap: wrap;
+		}
+		@media (min-width: 440px) and (max-width: 665px) {
+			& > .control {
+				margin-right: $sp-lg;
+				flex: 1 0 calc(50% - #{$sp-lg * 2});
+			}
+		}
+		@media (min-width: 666px) and (max-width: 799px) {
+			& > .control {
+				margin-right: $sp-lg;
+				flex: 1 0 calc(33.3% - #{$sp-lg * 2});
+			}
+		}
+	}
+
+	.contact-form input,
+	.contact-form select {
+		height: 3.25rem;
+	}
+
+	@media (min-width: 480px) {
+		.contact-group-halfsies {
+			display: flex;
+
+			& > * {
+				flex: 1 1 50%;
+				padding-left: $sp-md;
+				padding-right: $sp-md;
+
+				&:first-child {
+					margin-left: -$sp-md;
+				}
+				&:last-child {
+					margin-right: -$sp-md;
+				}
+			}
+
+			.select-indicator {
+				right: 2em;
+			}
+		}
+
+		.contact-field-month {
+			width: calc(100% - 9rem + 1px);
+			margin-bottom: $sp-lg;
+		}
+		.contact-field-year {
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			width: 9rem;
+			margin-bottom: 0 !important; // override utility class
+		}
+	}
+
+	@media (min-width: 800px) {
+		.contact-form {
+			display: flex;
+			justify-content: space-between;
+		}
+		.contact-inputs {
+			width: calc(100% - 19rem);
+		}
+	}
+</style>

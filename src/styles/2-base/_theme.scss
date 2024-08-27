@@ -1,0 +1,49 @@
+html {
+  background-color: $black;
+  color: $white;
+}
+
+a {
+  color: $gold;
+  text-decoration-color: $brown;
+  text-decoration-thickness: 0.125em;
+  text-underline-offset: 0.25em;
+  transition: color 0.2s ease-out;
+
+  &:hover,
+  &:focus {
+    color: $white;
+  }
+}
+
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.u-heading {
+  color: $gold;
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px dotted rgba($gold, 0.5);
+  outline-offset: 3px;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible),
+[tabindex]:focus:not(:focus-visible) {
+  outline: none;
+}
+
+::selection {
+  color: $white;
+  background-color: rgba($gold, 0.6);
+}
+
+main {
+  background-color: $night;
+}

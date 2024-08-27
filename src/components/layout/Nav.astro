@@ -1,0 +1,35 @@
+---
+import RetinaImg from "../RetinaImg.astro";
+import NavLinks from "./NavLinks.astro";
+---
+
+<nav class="nav">
+	<a class="nav-logo" href="/" draggable="false">
+		<RetinaImg
+			className="nav-logo-img"
+			file="logo-horizontal"
+			alt="J.R. Bauer Construction (home)"
+		/>
+	</a>
+	<NavLinks />
+</nav>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+	.nav {
+		@include container;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		padding-left: $sp-lg;
+		padding-right: $sp-lg;
+		padding-bottom: $sp-xxs;
+	}
+
+	.nav-logo {
+		margin-right: $sp-lg;
+		left: -$sp-xxs;
+	}
+</style>

@@ -1,0 +1,144 @@
+//////////////////////////////////
+// POSITIONING
+//////////////////////////////////
+
+@mixin pseudo {
+  display: block;
+  content: "";
+}
+
+@mixin absolute-expand {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin absolute-vertical-center {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin absolute-horizontal-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@mixin visually-hidden {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
+
+@mixin container {
+  width: 1200px;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+//////////////////////////////////
+// TYPOGRAPHY
+//////////////////////////////////
+
+@mixin body-text {
+  font-family: $body-font;
+  font-weight: $body-weight;
+  letter-spacing: -0.0125em;
+}
+
+@mixin title-text {
+  font-family: $title-font;
+  font-size: calc(#{$font-size-md} + 5vw);
+  font-weight: $title-weight;
+  line-height: 1.125;
+  text-shadow: 0 2px 2rem $black;
+
+  @media (min-width: 666px) {
+    font-size: $font-size-xl;
+  }
+}
+
+@mixin subhead-text {
+  font-family: $subhead-font;
+  font-weight: $subhead-weight;
+  text-transform: uppercase;
+  line-height: 1.5;
+  letter-spacing: 0.075em;
+  color: $gold;
+  text-shadow: 0 2px 2rem $black;
+}
+
+@mixin heading-text {
+  font-family: $title-font;
+  font-weight: $title-weight;
+  margin-bottom: $sp-md;
+}
+
+@mixin font-xl {
+  font-size: $font-size-xl;
+  line-height: 1.25em;
+}
+@mixin font-lg {
+  font-size: $font-size-lg;
+  line-height: 1.25em;
+}
+@mixin font-md {
+  font-size: $font-size-md;
+  line-height: 1.25em;
+}
+@mixin font-sm {
+  font-size: $font-size-sm;
+  line-height: 1.25em;
+}
+@mixin font-xs {
+  font-size: $font-size-xs;
+  line-height: 1.5em;
+}
+@mixin font-xxs {
+  font-size: $font-size-xxs;
+  line-height: 1.5em;
+}
+@mixin font-xxxs {
+  font-size: $font-size-xxxs;
+  line-height: 1.5em;
+}
+
+//////////////////////////////////
+// EFFECTS
+//////////////////////////////////
+
+@mixin box-shadow {
+  box-shadow: 0 1px 12px $shadow;
+}
+
+@mixin fancy-outline($offset: 1px, $color: $gold, $radius: $radius-lg) {
+  @include pseudo;
+  position: absolute;
+  top: -$offset;
+  right: -$offset;
+  bottom: -$offset;
+  left: -$offset; // behind border
+  width: calc(100% + #{$offset * 2});
+  height: calc(100% + #{$offset * 2});
+  background-image: $color;
+  border-radius: $radius;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+  transition-property: opacity, box-shadow, border-color;
+}

@@ -1,0 +1,19 @@
+{
+  "name": "jrbauerconstruction.com",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "open http://localhost:4321/ && astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^4.6.3",
+    "sass": "1.32.13"
+  },
+  "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.9.5"
+  }
+}

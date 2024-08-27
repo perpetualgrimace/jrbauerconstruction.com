@@ -1,0 +1,53 @@
+---
+const currPath = Astro.url.pathname;
+
+const links = [
+	{title: "Home", href: "/"},
+	{title: "About", href: "/about/", a11y: "J.R. Bauer Construction"},
+	{title: "Careers", href: "/careers/"},
+	{title: "Contact us", href: "/contact/"}
+];
+---
+
+<ul class="nav-links">
+  {links.map(link => (
+    <li class="nav-item">
+      <a
+        class="nav-link u-heading u-font-xxs"
+        href={link.href}
+        aria-current={currPath === link.href ? "page" : null}
+      >
+        {link.title}{link.a11y &&
+          <span class="u-visually-hidden"> {link.a11y}</span>
+        }
+      </a>
+    </li>
+  ))}
+</ul>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+	.nav-links {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.nav-item:not(:last-child) {
+		margin-right: $sp-xxs;
+	}
+
+	.nav-link {
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 0.5em;
+
+		&:not([aria-current="page"]) {
+			color: $walnut;
+		}
+
+		&:hover, &:focus {
+			color: $white;
+		}
+	}
+</style>
