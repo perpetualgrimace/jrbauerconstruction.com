@@ -1,0 +1,32 @@
+---
+const slides = [{
+  title: "01"
+},
+{
+  title: "02"
+}]
+---
+
+<script>
+  import Splide from "@splidejs/splide";
+
+  new Splide(".splide", {
+    type: "loop",
+    focus: "center",
+    fixedWidth: 380
+  }).mount();
+</script>
+
+<section class="splide" aria-label="Splide Basic HTML Example">
+  <div class="splide__track">
+		<ul class="splide__list">
+      {slides.map(slide => (
+        <li class="splide__slide">{slide.title}</li>
+      ))}
+		</ul>
+  </div>
+</section>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+</style>

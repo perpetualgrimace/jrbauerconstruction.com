@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import CTA from '../components/layout/CTA.astro';
 import SectionTitle from '../components/layout/SectionTitle.astro';
+import WorkCarousel from '../components/layout/WorkCarousel.astro';
 
 const heroProps = {
 	headline: "Florida’s first choice for ICF Construction",
@@ -11,7 +12,7 @@ const heroProps = {
 
 <Layout slug="home" title="Home" heroProps={heroProps}>
 	<SectionTitle title="Our work" subtitle="Work subhead"/>
-
+	<WorkCarousel />
 	<CTA />
 </Layout>
 
