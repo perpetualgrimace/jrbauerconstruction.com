@@ -27,6 +27,12 @@
   @include subhead-text;
 }
 
+.u-font-xxxl {
+  @include font-xxxl;
+}
+.u-font-xxl {
+  @include font-xxl;
+}
 .u-font-xl {
   @include font-xl;
 }

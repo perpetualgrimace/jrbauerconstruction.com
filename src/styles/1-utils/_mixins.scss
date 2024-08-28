@@ -89,9 +89,17 @@
   margin-bottom: $sp-md;
 }
 
+@mixin font-xxxl {
+  font-size: $font-size-xxxl;
+  line-height: 1em;
+}
+@mixin font-xxl {
+  font-size: $font-size-xxl;
+  line-height: 1em;
+}
 @mixin font-xl {
   font-size: $font-size-xl;
-  line-height: 1.25em;
+  line-height: 1em;
 }
 @mixin font-lg {
   font-size: $font-size-lg;
