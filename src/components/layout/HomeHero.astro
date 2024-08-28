@@ -1,0 +1,65 @@
+---
+import RetinaImg from "../RetinaImg.astro";
+import Button from "../Button.astro";
+
+const {props = {}} = Astro.props;
+const {title, headline} = props;
+---
+
+<div class="home-hero">
+  <div class="home-hero-img-wrapper">
+    <RetinaImg className="home-hero-img" file="hero/home-hero" extension="jpg" />
+  </div>
+
+  <div class="home-hero-caption">
+    <h1 class="home-hero-title u-font-xxxl u-mb-md">{headline || title}</h1>
+    <p class="home-hero-paragraph u-font-lg u-mb-lg">
+      We use <a href="why-icf">Insulated Concrete Forms</a> to build safer and more energy efficient homes in less time.
+    </p>
+    <Button href="why-icf" fontSize="md">
+      Learn more <span class="u-visually-hidden">about Insulated Concrete Forms</span>
+    </Button>
+  </div>
+</div>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+  .home-hero {
+    @include container;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 600px) {
+      min-height: 75vh;
+    }
+  }
+
+  .home-hero-img-wrapper {
+    position: absolute;
+    width: 100%;
+  }
+
+  .home-hero-img {
+    @include absolute-expand;
+    object-fit: cover;
+  }
+
+  .home-hero-img-wrapper:after {
+    @include pseudo;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(to bottom, transparent 0%, $black 100%);
+  }
+
+  .home-hero-caption {
+    max-width: 100%;
+    width: 30rem;
+    padding: 4rem $sp-lg 4.5rem $sp-lg;
+    z-index: 1;
+  }
+</style>
