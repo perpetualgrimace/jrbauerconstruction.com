@@ -58,7 +58,7 @@
 @mixin body-text {
   font-family: $body-font;
   font-weight: $body-weight;
-  letter-spacing: -0.0125em;
+  letter-spacing: 0.0125em;
 }
 
 @mixin title-text {

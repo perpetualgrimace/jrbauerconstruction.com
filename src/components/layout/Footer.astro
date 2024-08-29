@@ -6,18 +6,18 @@ const currYear =  new Date().getFullYear();
 ---
 
 <footer class="footer u-text-c">
-	<a class="footer-logo u-mb-md" href="/" draggable="false">
+	<a class="footer-logo u-mb-xs u-mh-auto" href="/" draggable="false">
 		<RetinaImg
-			className="footer-logo-img u-mh-auto"
+			className="footer-logo-img"
 			file="logo-vertical"
 			alt="J.R. Bauer Construction (home)"
 		/>
 	</a>
 	<NavLinks isFooter />
-  <p class="footer-colophon u-font-xxxs u-mb-sm">
-    All content copyright ©2023-{currYear} Global Entertainment Fabrication. All rights reserved.
+  <p class="footer-colophon u-font-xs u-mb-xs">
+    All content copyright ©2024{currYear === 2024 ? "" : `-${currYear}`} Global Entertainment Fabrication. All rights reserved.
   </p>
-  <p class="footer-colophon u-font-xxxs">
+  <p class="footer-colophon u-font-xs">
     Website and brand identity by <a href="https://jamesferrell.me" target="_blank">James Ferrell</a>.
   </p>
 </footer>
@@ -26,21 +26,22 @@ const currYear =  new Date().getFullYear();
 	@import '../../styles/global';
 
   .footer {
-    padding: 0 $sp-xl $sp-xl $sp-xl;
+    padding: $sp-md $sp-xl $sp-xl $sp-xl;
+    background-image: radial-gradient(at top, $navy-medium -25%, $navy-dark 100%);
   }
 
   .footer-logo {
     display: block;
+    width: 8.25rem;
   }
 
   .footer > .nav-links {
     justify-content: center;
-    margin-bottom: $sp-xxl;
+    margin-bottom: $sp-xl;
     transform: translatey(0.25em); // fudgin'
   }
 
   .footer-colophon {
-    color: $navy-light;
   }
 
   .footer:before {
