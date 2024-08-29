@@ -5,14 +5,15 @@ html {
 
 a {
   color: $aqua;
-  text-decoration-color: $navy-medium;
-  text-decoration-thickness: 0.125em;
-  text-underline-offset: 0.25em;
-  transition: color 0.2s ease-out;
+  text-decoration-color: rgba($aqua, 0.375);
+  text-decoration-thickness: 0.1em;
+  text-underline-offset: 0.1875em;
+  transition: color 0.2s ease-out, text-decoration 0.2s ease-out;
 
   &:hover,
   &:focus {
     color: $white;
+    text-decoration-color: $aqua;
   }
 }
 
