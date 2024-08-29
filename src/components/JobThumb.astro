@@ -1,0 +1,28 @@
+---
+import RetinaImg from "./RetinaImg.astro";
+
+const { id } = Astro.props.props;
+---
+
+<span class="job-thumb">
+  <!-- {id} -->
+  <RetinaImg
+    className="job-thumb-img"
+    file={`work/${id}-thumb`}
+    extension="jpg"
+  />
+</span>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+  .job-thumb {
+    display: block;
+    overflow: hidden;
+    border-radius: $radius-md;
+  }
+  .job-thumb-img {
+    width: 100%;
+    transform: scale(1.01);
+  }
+</style>

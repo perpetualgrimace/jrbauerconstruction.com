@@ -1,10 +1,6 @@
 ---
-const slides = [{
-  title: "01"
-},
-{
-  title: "02"
-}]
+import work from "../../data/work.json";
+import JobThumb from "../JobThumb.astro";
 ---
 
 <script>
@@ -12,21 +8,66 @@ const slides = [{
 
   new Splide(".splide", {
     type: "loop",
-    focus: "center",
-    fixedWidth: 380
+    pagination: false,
+    fixedWidth: "16.825rem",
+    gap: "0.5rem"
   }).mount();
 </script>
 
-<section class="splide" aria-label="Splide Basic HTML Example">
+<div class="splide work-carousel">
   <div class="splide__track">
 		<ul class="splide__list">
-      {slides.map(slide => (
-        <li class="splide__slide">{slide.title}</li>
+      {work.map(job => (
+        <li class="splide__slide">
+          <JobThumb props={job} />
+        </li>
       ))}
 		</ul>
   </div>
-</section>
+</div>
 
 <style is:global lang="scss">
 	@import '../../styles/global';
+
+  .work-carousel {
+    padding: $sp-lg;
+  }
+
+  .splide__arrows {
+    @include absolute-expand;
+  }
+  .splide__arrow {
+    @include absolute-vertical-center;
+    color: $dark;
+
+    &:hover, &:focus {
+      color: $white;
+
+      svg {
+        transform: none;
+      }
+    }
+
+    svg {
+      transform: scale(0.875);
+      fill: currentColor;
+      transition:
+        transform 0.2s ease-out,
+        color 0.2s ease-out;
+    }
+  }
+  .splide__arrow--prev {
+    left: -$sp-xs;
+
+    svg {
+      transform: scaleX(-1) scale(0.875);
+    }
+
+    &:hover svg, &:focus svg {
+      transform: scaleX(-1);
+    }
+  }
+  .splide__arrow--next {
+    right: -$sp-xs;
+  }
 </style>
