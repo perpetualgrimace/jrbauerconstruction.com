@@ -4,7 +4,26 @@ import Button from '../Button.astro';
 ---
 
 <div class="cta u-text-l-c">
-  <SectionTitle title="Let’s get started" subtitle="CTA subtitle">
-    <Button href="contact">Contact us</Button>
-  </SectionTitle>
+  <SectionTitle title="Ready to get started?" subtitle="CTA subtitle" />
+  <Button href="/contact/" fontSize="md">Contact us</Button>
 </div>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+  .cta {
+    width: 48rem;
+    max-width: 100%;
+    padding: $sp-xl $sp-xl $sp-xl $sp-xl;
+    background-image: radial-gradient(at top, $navy-medium, $navy-dark 100%);
+    border-radius: $radius-md;
+
+    & > .section-title {
+      margin-top: $sp-sm;
+      margin-bottom: $sp-xl;
+    }
+    & > .button {
+      margin-bottom: $sp-md;
+    }
+  }
+</style>
