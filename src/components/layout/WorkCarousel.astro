@@ -9,7 +9,7 @@ import JobThumb from "../JobThumb.astro";
   new Splide(".splide", {
     type: "loop",
     pagination: false,
-    fixedWidth: "16.825rem",
+    fixedWidth: "32.625%",
     gap: "0.5rem"
   }).mount();
 </script>
@@ -30,7 +30,7 @@ import JobThumb from "../JobThumb.astro";
 	@import '../../styles/global';
 
   .work-carousel {
-    padding: $sp-lg;
+    padding: $sp-lg 0;
   }
 
   .splide__arrows {
@@ -56,8 +56,17 @@ import JobThumb from "../JobThumb.astro";
         color 0.2s ease-out;
     }
   }
+  .splide__arrow--next {
+    right: -32px;
+    @media (min-width: 900px) {
+      right: -2rem;
+    }
+  }
   .splide__arrow--prev {
-    left: -$sp-xs;
+    left: -32px;
+    @media (min-width: 900px) {
+      left: -2rem;
+    }
 
     svg {
       transform: scaleX(-1) scale(0.875);
@@ -67,7 +76,5 @@ import JobThumb from "../JobThumb.astro";
       transform: scaleX(-1);
     }
   }
-  .splide__arrow--next {
-    right: -$sp-xs;
-  }
+
 </style>

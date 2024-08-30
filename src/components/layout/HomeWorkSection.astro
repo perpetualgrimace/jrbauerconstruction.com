@@ -1,0 +1,17 @@
+---
+import SectionTitle from './SectionTitle.astro';
+import WorkCarousel from './WorkCarousel.astro';
+---
+
+<section class="home-work-section u-mb-xl">
+  <SectionTitle title="Our work">
+    <p class="u-font-lg">
+      A small selection of <a href="/work/">jobs we’ve completed</a> over the years
+    </p>
+  </SectionTitle>
+  <WorkCarousel />
+</section>
+
+<style is:global lang="scss">
+	@import '../../styles/main';
+</style>
