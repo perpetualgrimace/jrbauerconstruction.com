@@ -1,0 +1,60 @@
+---
+import RetinaImg from "../RetinaImg.astro";
+import Button from "../Button.astro";
+
+const { imgSrc, moreLink } = Astro.props;
+---
+
+  <figure class="figure">
+    <RetinaImg className="figure-img" file={imgSrc} extension="jpg" />
+
+    <figcaption class="figure-caption u-font-lg u-text-l">
+      <slot />
+      {moreLink &&
+        <Button href={moreLink} fontSize="md">Learn more</Button>
+      }
+    </figcaption>
+  </figure>
+
+
+<style is:global lang="scss">
+	@import '../../styles/main';
+
+  .figure {
+    width: 48rem;
+    max-width: 100%;
+    padding: $sp-xl;
+    margin-top: $sp-lg;
+    margin-bottom: $sp-xxl + $sp-md;
+    background-image: radial-gradient(circle at 33.333%, $navy-medium -25%, $navy-dark 100%);
+    border-radius: $radius-md;
+  }
+
+  .figure-caption {
+    width: 58%;
+
+    & > p,
+    & > h3 {
+      font-size: inherit;
+
+      &:not(:last-child) {
+        margin-bottom: $sp-md;
+      }
+    }
+
+    & > .button {
+      margin-top: $sp-xs;
+    }
+  }
+
+  .figure-img {
+    position: absolute;
+    top: $sp-md;
+    right: -$sp-md;
+    height: 100%;
+    width: 40%;
+    object-fit: cover;
+    border-radius: $radius-md;
+    outline: $radius-md solid $black;
+  }
+</style>

@@ -1,7 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Figure from '../components/layout/Figure.astro';
 import CTA from '../components/layout/CTA.astro';
 import HomeWorkSection from '../components/layout/HomeWorkSection.astro';
+import SectionTitle from '../components/layout/SectionTitle.astro';
 
 const heroProps = {
 	headline: "Florida’s first choice for ICF Construction",
@@ -11,6 +13,19 @@ const heroProps = {
 
 <Layout slug="home" title="Home" heroProps={heroProps}>
 	<HomeWorkSection />
+
+	<SectionTitle title="Who we are" />
+	<Figure imgSrc="figure/about-us-figure" moreLink="/about/">
+		<p>For over 30 years, we’ve had the pleasure of building places where people live and thrive.</p>
+		<p>Whether the job requires design, engineering, or construction, our small team has the experience and work ethic to do it right.</p>
+	</Figure>
+
+	<SectionTitle title="A better way to build" />
+	<Figure imgSrc="figure/why-icf-figure" moreLink="/why-icf/">
+		<p>We’re purveyors of ICF Construction because its benefits are hard to ignore. Our work is quicker, your building is stronger and safer.</p>
+		<h3>Still undecided?</h3>
+	</Figure>
+
 	<CTA />
 </Layout>
 
