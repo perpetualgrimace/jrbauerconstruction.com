@@ -46,6 +46,7 @@ const {
 	<Footer />
 </html>
 
+
 <style is:global lang="scss">
 	@import '../styles/main';
 
@@ -69,19 +70,21 @@ const {
 	}
 
 	.bullet-list {
-		margin-bottom: $sp-xl * 1.5;
-
 		li {
-			padding-left: 1em;
-			margin-bottom: 0.5em;
+			padding-left: 0.875em;
+			font-size: inherit;
+
+			& + li {
+				margin-top: 0.75em;
+			}
 
 			&:before {
-				content: "•";
-				font-size: 1.5em;
-				color: $aqua;
+				content: "⬢";
+				font-size: 0.375em;
 				display: block;
 				position: absolute;
-				left: 0;
+				left: 1px;
+				top: 1em;
 				line-height: 1;
 			}
 		}

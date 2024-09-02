@@ -1,0 +1,70 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Column from '../components/layout/Column.astro';
+import Figure from '../components/layout/Figure.astro';
+import CTA from '../components/layout/CTA.astro';
+import SectionTitle from '../components/layout/SectionTitle.astro';
+
+const heroProps = {
+	headline: "Better, safer, faster.",
+	subhead: "Why people are increasingly choosing Insulated Concrete Form construction."
+}
+---
+
+<Layout slug="why-icf" title="Why ICF" heroProps={heroProps}>
+	<SectionTitle title="What is ICF?" />
+	<Figure imgSrc="figure/icf-block-figure">
+		<p>Traditional concrete building techniques require the construction of a temporary form to pour concrete into. This form must then be removed once the concrete has set.</p>
+		<p>Insulated Concrete Forms solve this problem.</p>
+		<p>We assemble interlocking ICF foam blocks to create a permanent form, and the foam doubles as insulation!</p>
+	</Figure>
+
+	<div class="columns-section u-mb-xxl">
+		<Column title="Benefits of ICF">
+			<ul class="bullet-list u-font-lg">
+				<li>Spend less energy and money on heating and cooling</li>
+				<li>100+ year life span due to non-degradable materials</li>
+				<li>Disaster and fire resistant</li>
+				<li>Termite resistant</li>
+				<li>Roughly 25% faster build compared to traditional concrete construction</li>
+				<li>Fewer materials used in build</li>
+			</ul>
+		</Column>
+		<Column title="Drawbacks of ICF">
+			<ul class="bullet-list u-font-lg">
+				<li>Specialists (<a href="/about/">like us!</a>) are needed during construction</li>
+				<li>While ICF homes are inherently green due to the insulation and mass in the walls, the materials used are not</li>
+				<li>It can be more complicated to remodel in the future</li>
+				<li>Roughly 6% greater cost compared to traditional concrete construction</li>
+			</ul>
+		</Column>
+	</div>
+
+	<CTA title="Any questions or comments?"/>
+</Layout>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+	.columns-section {
+		@media (max-width: 725px) {
+			.column + .column {
+				margin-top: $sp-xl
+			}
+		}
+		@media (min-width: 726px) {
+			display: flex;
+			padding-left: 0;
+			padding-right: 0;
+			width: calc(100% - #{$sp-xxl});
+
+			.column {
+				flex: 1 0 calc(50% - #{$sp-xl});
+			}
+
+			.column + .column {
+				margin-left: $sp-xl;
+			}
+		}
+	}
+</style>
