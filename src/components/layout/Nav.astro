@@ -33,6 +33,14 @@ import NavLinks from "./NavLinks.astro";
 		flex-wrap: wrap;
 		padding-left: $sp-xl;
 		padding-right: $sp-xl;
+
+		@media (min-width: 600px) {
+			.nav-item:not(:last-of-type) > .nav-link {
+				display: block;
+				line-height: 3em;
+				border-radius: 0;
+			}
+		}
 	}
 
 	.nav-logo {
