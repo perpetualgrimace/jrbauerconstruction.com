@@ -2,19 +2,26 @@
 import RetinaImg from "../RetinaImg.astro";
 import Button from "../Button.astro";
 
-const { imgSrc, moreLink } = Astro.props;
+const { imgSrc, moreLink, title, subtitle } = Astro.props;
 ---
 
-  <figure class="figure">
-    <RetinaImg className="figure-img" file={imgSrc} extension="jpg" />
+<figure class="figure">
+  <RetinaImg className="figure-img" file={imgSrc} extension="jpg" />
 
-    <figcaption class="figure-caption u-font-lg u-text-l">
-      <slot />
-      {moreLink &&
-        <Button href={moreLink} fontSize="md">Learn more</Button>
-      }
-    </figcaption>
-  </figure>
+  {title &&
+    <h3 class="figure-title u-font-xl">{title}</h3>
+  }
+  {subtitle &&
+    <p class="figure-subhead u-subhead">{subtitle}</p>
+  }
+
+  <figcaption class="figure-caption u-font-lg u-text-l">
+    <slot />
+    {moreLink &&
+      <Button href={moreLink} fontSize="md">Learn more</Button>
+    }
+  </figcaption>
+</figure>
 
 
 <style is:global lang="scss">
@@ -28,6 +35,10 @@ const { imgSrc, moreLink } = Astro.props;
     margin-bottom: $sp-xxl + $sp-md;
     background-image: radial-gradient(circle at 33.333%, $navy-medium -25%, $navy-dark 100%);
     border-radius: $radius-md;
+  }
+
+  .figure-subhead {
+    top: -1.375em;
   }
 
   .figure-caption {
@@ -56,5 +67,6 @@ const { imgSrc, moreLink } = Astro.props;
     object-fit: cover;
     border-radius: $radius-md;
     outline: $radius-md solid $black;
+    background-color: $grey;
   }
 </style>

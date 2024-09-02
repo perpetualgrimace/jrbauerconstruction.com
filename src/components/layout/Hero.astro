@@ -11,8 +11,8 @@ const {title, headline, subhead} = props;
   </div>
 
   <div class="hero-caption u-mh-auto u-text-l-c">
-    <h1 class="hero-title u-mb-xl">{headline || title}</h1>
-    <p class="hero-paragraph u-font-md">{subhead}</p>
+    <h1 class="hero-title u-font-xxxl u-mb-xs">{headline || title}</h1>
+    <p class="hero-paragraph u-font-lg">{subhead}</p>
   </div>
 </div>
 
@@ -20,12 +20,21 @@ const {title, headline, subhead} = props;
 	@import '../../styles/global';
 
   .hero {
-    position: static;
+    display: flex;
+    align-items: center;
+
+    @media (min-width: 600px) {
+      min-height: 44vh;
+    }
+  }
+
+  .hero-inner {
+    @include container;
   }
 
   .hero-img-wrapper {
+    @include absolute-expand;
     width: 100%;
-    min-height: 40vh;
   }
 
   .hero-img {
@@ -33,30 +42,10 @@ const {title, headline, subhead} = props;
     object-fit: cover;
   }
 
-  .hero-img-wrapper:after {
-    @include pseudo;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    width: 100%;
-    background-image: linear-gradient(to bottom, transparent 0%, $black 100%);
-  }
-
   .hero-caption {
     max-width: 100%;
+    width: 32rem;
+    padding: 4rem $sp-xl 4.5rem $sp-xl;
     z-index: 1;
-  }
-
-  .hero:after {
-    @include pseudo;
-    height: $sp-xxl;
-    width: 100%;
-    position: absolute;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background: $black;
   }
 </style>

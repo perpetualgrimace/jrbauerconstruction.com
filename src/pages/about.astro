@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BigStat from '../components/BigStat.astro';
+import Figure from '../components/layout/Figure.astro';
+import CTA from '../components/layout/CTA.astro';
+import SectionTitle from '../components/layout/SectionTitle.astro';
+
+const heroProps = {
+	headline: "About us",
+	subhead: "We’re a small team with the skills, experience, and worth ethic to get the job done right."
+}
+---
+
+<Layout slug="about" title="About" heroProps={heroProps}>
+	<SectionTitle title="We’re built for this" />
+	<Figure imgSrc="figure/about-us-figure">
+		<p>We’re a one stop shop with 30+ years experience designing, engineering, and building structures that last.</p>
+		<p>Our specialty is <a href="/why-icf/">Insulated Concrete Forms</a>, which is a method of construction that allows us to build safer and more energy efficient buildings more quickly.</p>
+		<p>We can even convert existing plans to ICF!</p>
+	</Figure>
+
+	<div class="big-stat-section u-mb-xxl">
+		<BigStat value="30+" label="years experience" />
+		<BigStat value="300+" label="satisfied customers" />
+	</div>
+
+	<SectionTitle title="Our leadership" />
+	<Figure imgSrc="figure/" title="John Bauer" subtitle="Owner / Founder">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</Figure>
+	<Figure imgSrc="figure/" title="Jesse Irish" subtitle="Operating Manager">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+	</Figure>
+
+	<CTA title="Let’s work together"/>
+</Layout>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+	.big-stat-section {
+		display: flex;
+		justify-content: center;
+
+		.big-stat + .big-stat {
+			margin-left: $sp-xl;
+		}
+	}
+</style>

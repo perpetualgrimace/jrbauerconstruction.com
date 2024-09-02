@@ -1,10 +1,12 @@
 ---
 import SectionTitle from './SectionTitle.astro';
 import Button from '../Button.astro';
+
+const {title = "Ready to get started?"} = Astro.props;
 ---
 
 <div class="cta u-text-l-c">
-  <SectionTitle title="Ready to get started?" subtitle="CTA subtitle" />
+  <SectionTitle title={title} subtitle="CTA subtitle" />
   <Button href="/contact/" fontSize="md">Contact us</Button>
 </div>
 
