@@ -1,5 +1,7 @@
 ---
-import work from "../../data/work.json";
+import { getCollection } from 'astro:content';
+const work = await getCollection('work');
+
 import JobThumb from "../JobThumb.astro";
 ---
 

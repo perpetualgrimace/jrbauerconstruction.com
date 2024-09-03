@@ -1,0 +1,37 @@
+---
+import { getCollection } from 'astro:content';
+const work = await getCollection('work');
+
+import Layout from '../layouts/Layout.astro';
+import CTA from '../components/layout/CTA.astro';
+import JobThumb from "../components/JobThumb.astro";
+
+const heroProps = {
+	headline: "Our work",
+	subhead: "For 30+ years, we’ve meticulously built structures that last. Here’s a small selection."
+}
+---
+
+<Layout slug="work" title="Our work" heroProps={heroProps}>
+	<ul class="work-grid">
+		{work.map(job =>(
+			<li>
+				<a href={`/work/${job.slug}`}>
+					<JobThumb props={job} />
+				</a>
+			</li>
+		))}
+	</ul>
+	<CTA title="Let’s work together"/>
+</Layout>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+	.work-grid {
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+	}
+
+</style>

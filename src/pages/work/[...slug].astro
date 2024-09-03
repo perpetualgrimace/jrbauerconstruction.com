@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+// 1. Generate a new path for every collection job
+export async function getStaticPaths() {
+  const workEntries = await getCollection('work');
+  return workEntries.map(job => ({
+    params: { slug: job.slug }, props: { job },
+  }));
+}
+// 2. For your template, you can get the job directly from the prop
+const { job } = Astro.props;
+const { Content } = await job.render();
+---
+<h1>{job.data.title}</h1>
+<Content />

@@ -1,17 +1,18 @@
 ---
 import RetinaImg from "./RetinaImg.astro";
 
-const { id } = Astro.props.props;
+const { slug } = Astro.props.props;
 ---
 
-<span class="job-thumb">
+<a class="job-thumb" href={`/work/${slug}`}>
   <!-- {id} -->
   <RetinaImg
     className="job-thumb-img"
-    file={`work/${id}-thumb`}
+    file={`work/${slug}-thumb`}
     extension="jpg"
+    loading="eager"
   />
-</span>
+</a>
 
 <style is:global lang="scss">
 	@import '../styles/global';
