@@ -8,6 +8,7 @@
 
 label {
   display: block;
+  font-size: $font-size-md;
 }
 
 input[type="text"],
@@ -19,7 +20,8 @@ textarea {
   padding: 0.75em 0.875em 0.875em;
   background-color: $black;
   border: 1px solid $navy-light;
-  font-size: $font-size-xs;
+  border-radius: $radius-md;
+  font-size: $font-size-sm;
   transition: background-color 0.2s ease-out, border-color 0.2s ease-out,
     color 0.2s ease-out;
 

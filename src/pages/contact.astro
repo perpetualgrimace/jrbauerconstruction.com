@@ -3,8 +3,8 @@ import Layout from '../layouts/Layout.astro';
 import Button from '../components/Button.astro';
 
 const heroProps = {
-	headline: "Contact",
-	subhead: "Contact subhead"
+	headline: "Contact us",
+	subhead: "We’ll get back to you as soon as possible"
 }
 
 const services = [];
@@ -12,7 +12,7 @@ const services = [];
 
 <Layout slug="contact" title="Contact" heroProps={heroProps}>
 	<form
-		class="contact-form u-mb-md"
+		class="contact-form"
 		name="jrbcontact"
 		method="POST"
 		netlify-honeypot="bot-field"
@@ -46,7 +46,7 @@ const services = [];
 			</fieldset>
 		</div> -->
 
-		<div class="contact-inputs u-mb-sm u-m-auto">
+		<div class="contact-inputs u-m-auto">
 			<div class="contact-group-halfsies">
 				<label class="u-mb-lg contact-field-name">
 					<div class="u-subhead u-mb-xxs">Your name</div>
@@ -60,12 +60,12 @@ const services = [];
 				</label>
 
 				<label class="u-mb-lg contact-field-email">
-					<div class="u-subhead u-mb-xxs">Your email address</div>
+					<div class="u-subhead u-mb-xxs">Email address</div>
 					<input
 						name="email"
 						id="email"
 						required
-						placeholder="email@address.com"
+						placeholder="your@email.address"
 						type="email"
 					/>
 				</label>
@@ -81,40 +81,48 @@ const services = [];
 				/>
 			</label>
 
-			<Button isBlock type="submit">Submit</Button>
+			<Button isBlock type="submit" fontSize="md">Send message</Button>
 		</div>
 	</form>
 </Layout>
 
+
 <style is:global lang="scss">
 	@import '../styles/global';
 
-	.contact-field-services-checkboxes {
-		& > .control {
-			margin-bottom: 1.375em;
-		}
+	// .contact-field-services-checkboxes {
+	// 	& > .control {
+	// 		margin-bottom: 1.375em;
+	// 	}
 
-		@media (max-width: 799px) {
-			display: flex;
-			flex-wrap: wrap;
-		}
-		@media (min-width: 440px) and (max-width: 665px) {
-			& > .control {
-				margin-right: $sp-lg;
-				flex: 1 0 calc(50% - #{$sp-lg * 2});
-			}
-		}
-		@media (min-width: 666px) and (max-width: 799px) {
-			& > .control {
-				margin-right: $sp-lg;
-				flex: 1 0 calc(33.3% - #{$sp-lg * 2});
-			}
-		}
+	// 	@media (max-width: 799px) {
+	// 		display: flex;
+	// 		flex-wrap: wrap;
+	// 	}
+	// 	@media (min-width: 440px) and (max-width: 665px) {
+	// 		& > .control {
+	// 			margin-right: $sp-lg;
+	// 			flex: 1 0 calc(50% - #{$sp-lg * 2});
+	// 		}
+	// 	}
+	// 	@media (min-width: 666px) and (max-width: 799px) {
+	// 		& > .control {
+	// 			margin-right: $sp-lg;
+	// 			flex: 1 0 calc(33.3% - #{$sp-lg * 2});
+	// 		}
+	// 	}
+	// }
+
+	.contact-form {
+		padding: $sp-lg $sp-xl $sp-xl $sp-xl;
+		width: 34rem;
+		background-image: radial-gradient(at top, $navy-medium, $navy-dark 100%);
+		border-radius: $radius-lg;
 	}
 
 	.contact-form input,
 	.contact-form select {
-		height: 3.25rem;
+		height: 2.5rem;
 	}
 
 	@media (min-width: 480px) {
@@ -134,22 +142,22 @@ const services = [];
 				}
 			}
 
-			.select-indicator {
-				right: 2em;
-			}
+			// .select-indicator {
+			// 	right: 2em;
+			// }
 		}
 
-		.contact-field-month {
-			width: calc(100% - 9rem + 1px);
-			margin-bottom: $sp-lg;
-		}
-		.contact-field-year {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			width: 9rem;
-			margin-bottom: 0 !important; // override utility class
-		}
+		// .contact-field-month {
+		// 	width: calc(100% - 9rem + 1px);
+		// 	margin-bottom: $sp-lg;
+		// }
+		// .contact-field-year {
+		// 	position: absolute;
+		// 	right: 0;
+		// 	bottom: 0;
+		// 	width: 9rem;
+		// 	margin-bottom: 0 !important; // override utility class
+		// }
 	}
 
 	@media (min-width: 800px) {
@@ -158,7 +166,8 @@ const services = [];
 			justify-content: space-between;
 		}
 		.contact-inputs {
-			width: calc(100% - 19rem);
+			// width: calc(100% - 19rem);
+			width: 100%;
 		}
 	}
 </style>
