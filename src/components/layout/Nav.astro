@@ -22,7 +22,6 @@ import NavLinks from "./NavLinks.astro";
 	.nav {
 		background-color: $navy-dark;
 		background-image: linear-gradient(to right, $navy-medium, $navy-dark);
-
 	}
 
 	.nav-inner {
@@ -33,6 +32,10 @@ import NavLinks from "./NavLinks.astro";
 		flex-wrap: wrap;
 		padding-left: $sp-xl;
 		padding-right: $sp-xl;
+
+		.nav-item:nth-last-child(2) {
+			margin-right: $sp-sm;
+		}
 
 		@media (min-width: 600px) {
 			.nav-item:not(:last-of-type) > .nav-link {
