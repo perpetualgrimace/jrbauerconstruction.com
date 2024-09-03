@@ -7,9 +7,6 @@
   }
 }
 .splide__track--draggable {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 .splide__track--fade > .splide__list > .splide__slide {
@@ -33,7 +30,6 @@
 }
 .splide__list {
   backface-visibility: hidden;
-  display: -ms-flexbox;
   display: flex;
   height: 100%;
   margin: 0 !important;
@@ -43,13 +39,9 @@
   display: block;
 }
 .splide__pagination {
-  -ms-flex-align: center;
   align-items: center;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -ms-flex-pack: center;
   justify-content: center;
   margin: 0;
   pointer-events: none;
@@ -69,7 +61,7 @@
 }
 .splide {
   position: relative;
-  visibility: hidden;
+  visibility: initial;
 }
 .splide.is-initialized,
 .splide.is-rendered {
@@ -78,7 +70,6 @@
 .splide__slide {
   backface-visibility: hidden;
   box-sizing: border-box;
-  -ms-flex-negative: 0;
   flex-shrink: 0;
   list-style-type: none !important;
   margin: 0;
