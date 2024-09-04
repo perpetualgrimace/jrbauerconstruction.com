@@ -16,7 +16,7 @@ const heroProps = {
 	<ul class="work-grid">
 		{work.map(job => (
 			<li class="work-item">
-				<JobThumb props={job} />
+				<JobThumb slug={job.slug} title={job.data.title} />
 			</li>
 		))}
 	</ul>

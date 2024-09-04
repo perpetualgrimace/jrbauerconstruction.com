@@ -21,7 +21,7 @@ import JobThumb from "../JobThumb.astro";
 		<ul class="splide__list">
       {work.map(job => (
         <li class="splide__slide">
-          <JobThumb props={job} />
+          <JobThumb slug={job.slug} title={job.data.title} loading="eager" />
         </li>
       ))}
 		</ul>

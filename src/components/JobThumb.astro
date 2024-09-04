@@ -1,16 +1,20 @@
 ---
 import RetinaImg from "./RetinaImg.astro";
 
-const { slug } = Astro.props.props;
+const { loading = "lazy" } = Astro.props;
+const { slug, title } = Astro.props;
 ---
 
 <a class="job-thumb" href={`/work/${slug}`}>
-  <!-- {id} -->
+  <span class="job-thumb-title u-title u-font-md">
+    {title}
+  </span>
+
   <RetinaImg
     className="job-thumb-img"
     file={`work/${slug}-thumb`}
     extension="jpg"
-    loading="eager"
+    loading={loading}
   />
 </a>
 
@@ -21,9 +25,33 @@ const { slug } = Astro.props.props;
     display: block;
     overflow: hidden;
     border-radius: $radius-md;
+
+    &:hover .job-thumb-title,
+    &:focus .job-thumb-title {
+      opacity: 1;
+      transform: none;
+    }
+    &:hover .job-thumb-img {
+      transform: scale(1.1);
+    }
+  }
+  .job-thumb-title {
+    @include absolute-expand;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: $sp-xs;
+    color: $white;
+    background-color: rgba($black, 0.75);
+    border: $radius-md solid $aqua;
+    opacity: 0;
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+    transform: scale(1.1);
   }
   .job-thumb-img {
     width: 100%;
     transform: scale(1.01);
+    transition: transform 0.2s ease-out;
   }
 </style>
