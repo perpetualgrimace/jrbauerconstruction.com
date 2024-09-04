@@ -1,15 +1,60 @@
 ---
 import { getCollection } from 'astro:content';
-// 1. Generate a new path for every collection job
+
+import Layout from '../../layouts/Layout.astro';
+import Bullet from '../../components/icons/bullet.svg.astro';
+
 export async function getStaticPaths() {
   const workEntries = await getCollection('work');
   return workEntries.map(job => ({
     params: { slug: job.slug }, props: { job },
   }));
 }
-// 2. For your template, you can get the job directly from the prop
+
 const { job } = Astro.props;
+const { slug } = job;
+const { title, location, year } = job.data;
 const { Content } = await job.render();
+
+const heroProps = {
+  headline: title,
+  textOnly: true
+}
 ---
-<h1>{job.data.title}</h1>
-<Content />
+
+<Layout slug={slug} title={title} heroProps={heroProps}>
+  <section class="job">
+    <div class="job-description">
+      <p class="job-meta u-mb-lg">
+        <span class="job-meta-location">{location}</span>
+        <Bullet />
+        <span class="job-meta-year">{year}</span>
+      </p>
+      <Content />
+    </div>
+    <div class="job-gallery" />
+  </section>
+</Layout>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+  .job {
+    width: 1110px;
+    max-width: calc(100% - #{$sp-xxl});
+    padding: $sp-xl $sp-xl $sp-xl $sp-xl;
+    margin-top: -$sp-xxl*2;
+    background-image: radial-gradient(at top left, $navy-medium, $navy-dark 100%);
+    border-radius: $radius-md;
+  }
+
+  .job-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    & > *:not(:last-child) {
+      margin-right: 1em;
+    }
+  }
+</style>

@@ -2,21 +2,25 @@
 import RetinaImg from "../RetinaImg.astro";
 
 const {slug, props = {}} = Astro.props;
-const {title, headline, subhead, useDefaultImg} = props;
+const {title, headline, subhead, useDefaultImg, textOnly} = props;
 ---
 
 <div class="hero">
-  <div class={`hero-img-wrapper ${slug}-hero-img-wrapper`}>
-    <RetinaImg
-      className="hero-img u-mh-auto"
-      file={`hero/${useDefaultImg ? "default" : slug}-hero`}
-      extension="jpg"
-    />
-  </div>
+  {!textOnly &&
+    <div class={`hero-img-wrapper ${slug}-hero-img-wrapper`}>
+      <RetinaImg
+        className="hero-img u-mh-auto"
+        file={`hero/${useDefaultImg ? "default" : slug}-hero`}
+        extension="jpg"
+      />
+    </div>
+  }
 
   <div class="hero-caption u-mh-auto u-text-l-c">
-    <h1 class="hero-title u-font-xxxl u-mb-xs">{headline || title}</h1>
-    <p class="hero-paragraph u-font-lg">{subhead}</p>
+    <h1 class={`hero-title u-font-xxxl ${subhead ? "u-mb-xs" : ""}`}>{headline || title}</h1>
+    {subhead &&
+      <p class="hero-paragraph u-font-lg">{subhead}</p>
+    }
   </div>
 </div>
 
