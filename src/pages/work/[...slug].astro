@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 
 import Layout from '../../layouts/Layout.astro';
 import Bullet from '../../components/icons/bullet.svg.astro';
+import JobGallery from '../../components/JobGallery.astro';
 
 export async function getStaticPaths() {
   const workEntries = await getCollection('work');
@@ -13,7 +14,7 @@ export async function getStaticPaths() {
 
 const { job } = Astro.props;
 const { slug } = job;
-const { title, location, year } = job.data;
+const { title, location, year, images } = job.data;
 const { Content } = await job.render();
 
 const heroProps = {
@@ -32,7 +33,7 @@ const heroProps = {
       </p>
       <Content />
     </div>
-    <div class="job-gallery" />
+    <JobGallery images={images} slug={slug}  />
   </section>
 </Layout>
 

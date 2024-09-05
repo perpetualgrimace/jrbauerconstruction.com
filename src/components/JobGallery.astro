@@ -1,0 +1,54 @@
+---
+const { images, slug } = Astro.props;
+
+import RetinaImg from "./RetinaImg.astro";
+---
+
+<div class="job-gallery">
+  <ul class="job-main-img-list">
+    {images.map((img, i) => (
+      <li class="job-main-img-item" data-index={i} style={i !== 0 ? "display: none;" : ""}>
+        <RetinaImg file={`work/${slug}/${img}`} extension="jpg" alt={`Project image #${i + 1}`} />
+      </li>
+    ))}
+  </ul>
+
+  <ul class="job-select-img-list">
+    {images.map((img, i) => (
+      <li class="job-select-img-item">
+        <button class="job-select-img-button" data-index={i} aria-pressed={i === 0}>
+          <span class="u-visually-hidden">View project image #{i + 1}</span>
+          <RetinaImg file={`work/${slug}/${img}`} extension="jpg" at1x="@0.5x" at2x="" />
+        </button>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script>
+  let activeIndex = 0;
+
+  const mainImages = document.querySelectorAll('.job-main-img-item[data-index]');
+  const buttons = document.querySelectorAll('.job-select-img-button[data-index]');
+
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const pressedIndex = button.attributes["data-index"].nodeValue;
+
+      if (pressedIndex !== activeIndex) {
+        activeIndex = button.attributes["data-index"].nodeValue;
+
+        document.querySelector('.job-select-img-button[aria-pressed="true"]').removeAttribute("aria-pressed");
+        button.setAttribute("aria-pressed", true);
+
+        mainImages.forEach(img => {
+          img.style.display = "none";
+
+          if (img.attributes["data-index"].nodeValue === activeIndex) {
+            img.style.display = "block";
+          };
+        });
+      };
+    });
+  });
+</script>

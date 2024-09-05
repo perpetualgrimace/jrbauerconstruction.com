@@ -6,7 +6,9 @@ const {
   file = "missing-file-prop",
   loading = "lazy",
   width = null,
-  height = null
+  height = null,
+  at1x = "",
+  at2x = "@2x"
  } = Astro.props;
 ---
 
@@ -14,8 +16,8 @@ const {
   class={className}
   src={`/${file}.${extension}`}
   srcset={`
-    /${file}.${extension} 1x,
-    /${file}@2x.${extension} 2x`}
+    /${file}${at1x}.${extension} 1x,
+    /${file}${at2x}.${extension} 2x`}
   alt={alt}
   loading={loading}
   draggable="false"
