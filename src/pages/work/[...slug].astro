@@ -43,7 +43,10 @@ const heroProps = {
         <Bullet />
         <span class="job-meta-year">{year}</span>
       </p>
-      <Content />
+
+      <div class="job-description-content">
+        <Content />
+      </div>
 
       <h2 class="job-more-heading">More work</h2>
 
@@ -63,12 +66,31 @@ const heroProps = {
 	@import '../../styles/global';
 
   .job {
+    display: flex;
+    flex-wrap: wrap;
     width: 1110px;
     max-width: calc(100% - #{$sp-xxl});
-    padding: $sp-xl $sp-xl $sp-xl $sp-xl;
+    padding: $sp-xl $sp-xl $sp-sm $sp-xl;
     margin-top: -$sp-xxl*2;
     background-image: radial-gradient(at top left, $navy-medium, $navy-dark 100%);
-    border-radius: $radius-md;
+    border-radius: $radius-lg;
+  }
+
+  @media (max-width: 699px) {
+    .job-gallery {
+      width: 100%;
+      order: -1;
+      margin-bottom: $sp-lg;
+    }
+  }
+  @media (min-width: 700px) {
+    .job-description {
+      flex: 1 0 33.333%;
+      margin-right: $sp-xl;
+    }
+    .job-gallery {
+      flex: 1 0 calc(66.666% - #{$sp-xl});
+    }
   }
 
   .job-meta {
@@ -78,6 +100,20 @@ const heroProps = {
 
     & > *:not(:last-child) {
       margin-right: 1em;
+    }
+  }
+
+  .job-more-heading {
+    margin-top: $sp-xl;
+    margin-bottom: $sp-xs;
+  }
+
+  .job-description-content > * {
+    @include font-md;
+    line-height: 1.625;
+
+    &:not(:last-child) {
+      margin-bottom: $sp-sm;
     }
   }
 </style>

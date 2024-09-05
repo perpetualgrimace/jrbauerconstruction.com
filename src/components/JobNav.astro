@@ -2,18 +2,43 @@
 const {prevSlug, prevTitle, nextSlug, nextTitle} = Astro.props;
 ---
 
-<nav class="job-nav u-mb-lg">
-  <a class="job-nav-link" href={`/work/${prevSlug}`}>&larr; {prevTitle}</a>
+<nav class="job-nav u-mb-lg u-font-sm">
+  <a class="job-nav-link" href={`/work/${prevSlug}`}>&larr; Previous job</a>
   <a class="job-nav-link" href="/work/">All jobs</a>
-  <a class="job-nav-link" href={`/work/${nextSlug}`}>{nextTitle} &rarr;</a>
+  <a class="job-nav-link" href={`/work/${nextSlug}`}>Next job &rarr;</a>
 </nav>
 
 <style is:global lang="scss">
 	@import '../styles/global';
 
   .job-nav {
-    display: flex;
     width: 100%;
-    justify-content: space-between;
+
+    @media (min-width: 700px) {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  @media (max-width: 699px) {
+    .job-nav-link {
+      display: inline-block;
+      font-weight: $heavy-weight;
+      text-decoration: none;
+      padding: 0.5em 1.125em 0.625em 1.125em;
+      color: $black;
+      background-color: $aqua;
+      border-radius: $radius-sm;
+      transition: 0.2s ease-out background-color;
+
+      &:not(:last-child) {
+        margin-bottom: $sp-xxs;
+      }
+
+      &:hover, &:focus {
+        color: $black;
+        background: $white;
+      }
+    }
   }
 </style>

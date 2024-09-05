@@ -6,10 +6,10 @@ import RetinaImg from "./RetinaImg.astro";
 
 <div class="job-gallery">
   {images &&
-    <ul class="job-main-img-list">
+    <ul class="job-main-img-list u-mb-md">
       {images.map((img, i) => (
         <li class="job-main-img-item" data-index={i} style={i !== 0 ? "display: none;" : ""}>
-          <RetinaImg file={`work/${slug}/${img}`} extension="jpg" alt={`Project image #${i + 1}`} />
+          <RetinaImg className="job-main-img" file={`work/${slug}/${img}`} extension="jpg" alt={`Project image #${i + 1}`} />
         </li>
       ))}
     </ul>
@@ -19,13 +19,74 @@ import RetinaImg from "./RetinaImg.astro";
         <li class="job-select-img-item">
           <button class="job-select-img-button" data-index={i} aria-pressed={i === 0}>
             <span class="u-visually-hidden">View project image #{i + 1}</span>
-            <RetinaImg file={`work/${slug}/${img}`} extension="jpg" at1x="@0.5x" at2x="" />
+            <RetinaImg className="job-select-img" file={`work/${slug}/${img}`} extension="jpg" at1x="@0.5x" at2x="" />
           </button>
         </li>
       ))}
     </ul>
   }
 </div>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+  .job-main-img-list {
+    overflow: hidden;
+    border-radius: $radius-md;
+  }
+  .job-main-img {
+    width: 100%;
+  }
+
+  .job-select-img-list {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  }
+  .job-select-img-item {
+    flex: 0 0 auto;
+  }
+  .job-select-img-item:not(:last-of-type) {
+    margin-right: $sp-md;
+  }
+  .job-select-img-button {
+    overflow: hidden;
+    border-radius: $radius-sm;
+
+    &:before {
+      @include pseudo;
+      @include absolute-expand;
+      z-index: 2;
+      border-radius: $radius-sm;
+      border: $radius-md solid transparent;
+      transition: border-color 0.2s ease-out;
+    }
+
+    &[aria-pressed]:before {
+      border-color: $aqua;
+    }
+
+    &:not([aria-pressed]) .job-select-img {
+      opacity: 0.5;
+    }
+
+    &[aria-pressed] .job-select-img,
+    &:hover .job-select-img,
+    &:focus .job-select-img {
+      transform: scale(1.1);
+      opacity: 1;
+    }
+
+    &:hover:before {
+      border-color: $white;
+    }
+  }
+  .job-select-img {
+    width: 6rem;
+    transform: scale(1.01);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+</style>
 
 <script>
   let activeIndex = 0;
