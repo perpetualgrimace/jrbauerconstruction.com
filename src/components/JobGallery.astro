@@ -5,24 +5,26 @@ import RetinaImg from "./RetinaImg.astro";
 ---
 
 <div class="job-gallery">
-  <ul class="job-main-img-list">
-    {images.map((img, i) => (
-      <li class="job-main-img-item" data-index={i} style={i !== 0 ? "display: none;" : ""}>
-        <RetinaImg file={`work/${slug}/${img}`} extension="jpg" alt={`Project image #${i + 1}`} />
-      </li>
-    ))}
-  </ul>
+  {images &&
+    <ul class="job-main-img-list">
+      {images.map((img, i) => (
+        <li class="job-main-img-item" data-index={i} style={i !== 0 ? "display: none;" : ""}>
+          <RetinaImg file={`work/${slug}/${img}`} extension="jpg" alt={`Project image #${i + 1}`} />
+        </li>
+      ))}
+    </ul>
 
-  <ul class="job-select-img-list">
-    {images.map((img, i) => (
-      <li class="job-select-img-item">
-        <button class="job-select-img-button" data-index={i} aria-pressed={i === 0}>
-          <span class="u-visually-hidden">View project image #{i + 1}</span>
-          <RetinaImg file={`work/${slug}/${img}`} extension="jpg" at1x="@0.5x" at2x="" />
-        </button>
-      </li>
-    ))}
-  </ul>
+    <ul class="job-select-img-list">
+      {images.map((img, i) => (
+        <li class="job-select-img-item">
+          <button class="job-select-img-button" data-index={i} aria-pressed={i === 0}>
+            <span class="u-visually-hidden">View project image #{i + 1}</span>
+            <RetinaImg file={`work/${slug}/${img}`} extension="jpg" at1x="@0.5x" at2x="" />
+          </button>
+        </li>
+      ))}
+    </ul>
+  }
 </div>
 
 <script>

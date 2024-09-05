@@ -4,15 +4,27 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Bullet from '../../components/icons/bullet.svg.astro';
 import JobGallery from '../../components/JobGallery.astro';
+import JobNav from '../../components/JobNav.astro';
 
 export async function getStaticPaths() {
   const workEntries = await getCollection('work');
-  return workEntries.map(job => ({
-    params: { slug: job.slug }, props: { job },
+  const workCount = workEntries.length;
+
+  return workEntries.map((job, i) => ({
+    params: { slug: job.slug },
+    props: {
+      job,
+      prevJob: i === 0
+        ? workEntries[[workCount - 1]]
+        : workEntries[i - 1],
+      nextJob: i === workCount - 1
+          ? workEntries[0]
+          : workEntries[i + 1]
+    },
   }));
 }
 
-const { job } = Astro.props;
+const { job, prevJob, nextJob } = Astro.props;
 const { slug } = job;
 const { title, location, year, images } = job.data;
 const { Content } = await job.render();
@@ -32,7 +44,17 @@ const heroProps = {
         <span class="job-meta-year">{year}</span>
       </p>
       <Content />
+
+      <h2 class="job-more-heading">More work</h2>
+
+      <JobNav
+        prevSlug={prevJob.slug}
+        prevTitle={prevJob.data.title}
+        nextSlug={nextJob.slug}
+        nextTitle={nextJob.data.title}
+      />
     </div>
+
     <JobGallery images={images} slug={slug}  />
   </section>
 </Layout>

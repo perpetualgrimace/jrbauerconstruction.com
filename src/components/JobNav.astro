@@ -1,0 +1,19 @@
+---
+const {prevSlug, prevTitle, nextSlug, nextTitle} = Astro.props;
+---
+
+<nav class="job-nav u-mb-lg">
+  <a class="job-nav-link" href={`/work/${prevSlug}`}>&larr; {prevTitle}</a>
+  <a class="job-nav-link" href="/work/">All jobs</a>
+  <a class="job-nav-link" href={`/work/${nextSlug}`}>{nextTitle} &rarr;</a>
+</nav>
+
+<style is:global lang="scss">
+	@import '../styles/global';
+
+  .job-nav {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+</style>
