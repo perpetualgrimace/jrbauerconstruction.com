@@ -31,6 +31,7 @@ const { Content } = await job.render();
 
 const heroProps = {
   headline: title,
+  subhead: location,
   textOnly: true
 }
 ---
@@ -38,7 +39,7 @@ const heroProps = {
 <Layout slug={slug} title={title} heroProps={heroProps}>
   <section class="job">
     <div class="job-description">
-      <p class="job-meta u-mb-lg">
+      <!-- <p class="job-meta u-mb-lg">
         <span class="job-meta-location">{location}</span>
         <Bullet />
         <span class="job-meta-year">{year}</span>
@@ -46,7 +47,7 @@ const heroProps = {
 
       <div class="job-description-content">
         <Content />
-      </div>
+      </div> -->
 
       <h2 class="job-more-heading">More work</h2>
 
@@ -76,22 +77,22 @@ const heroProps = {
     border-radius: $radius-lg;
   }
 
-  @media (max-width: 699px) {
+  // @media (max-width: 699px) {
     .job-gallery {
       width: 100%;
       order: -1;
-      margin-bottom: $sp-lg;
+      // margin-bottom: $sp-lg;
     }
-  }
-  @media (min-width: 700px) {
-    .job-description {
-      flex: 1 0 33.333%;
-      margin-right: $sp-xl;
-    }
-    .job-gallery {
-      flex: 1 0 calc(66.666% - #{$sp-xl});
-    }
-  }
+  // }
+  // @media (min-width: 700px) {
+  //   .job-description {
+  //     flex: 1 0 33.333%;
+  //     margin-right: $sp-xl;
+  //   }
+  //   .job-gallery {
+  //     flex: 1 0 calc(66.666% - #{$sp-xl});
+  //   }
+  // }
 
   .job-meta {
     display: flex;

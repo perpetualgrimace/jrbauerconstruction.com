@@ -5,7 +5,7 @@ const {slug, props = {}} = Astro.props;
 const {title, headline, subhead, useDefaultImg, textOnly} = props;
 ---
 
-<div class="hero">
+<div class={`hero ${textOnly && "text-only-hero"}`}>
   {!textOnly &&
     <div class={`hero-img-wrapper ${slug}-hero-img-wrapper`}>
       <RetinaImg
@@ -56,5 +56,9 @@ const {title, headline, subhead, useDefaultImg, textOnly} = props;
     width: 32rem;
     padding: 4rem $sp-xl 4.5rem $sp-xl;
     z-index: 1;
+  }
+
+  .text-only-hero {
+    margin-top: 0;
   }
 </style>
