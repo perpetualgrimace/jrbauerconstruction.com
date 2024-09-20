@@ -42,8 +42,6 @@ const { imgSrc, moreLink, title, subtitle } = Astro.props;
   }
 
   .figure-caption {
-    width: 58%;
-
     & > p,
     & > h3 {
       font-size: inherit;
@@ -59,14 +57,24 @@ const { imgSrc, moreLink, title, subtitle } = Astro.props;
   }
 
   .figure-img {
-    position: absolute;
-    top: $sp-md;
-    right: -$sp-md;
-    height: 100%;
-    width: 40%;
     object-fit: cover;
     border-radius: $radius-md;
     outline: $radius-md solid $black;
     background-color: $grey;
+    margin-top: -#{$sp-xl + $sp-xs};
+    margin-bottom: $sp-xl;
+
+    @media (min-width: 700px) {
+      position: absolute;
+      top: $sp-md;
+      right: -$sp-md;
+      margin-top: 0;
+      height: 100%;
+      width: 40%;
+
+      & + .figure-caption {
+        width: 58%;
+      }
+    }
   }
 </style>
