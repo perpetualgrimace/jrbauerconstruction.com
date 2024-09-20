@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Figure from '../components/layout/Figure.astro';
 import CTA from '../components/layout/CTA.astro';
 import HomeWorkSection from '../components/layout/HomeWorkSection.astro';
+import ServicesSection from '../components/layout/ServicesSection.astro';
 import SectionTitle from '../components/layout/SectionTitle.astro';
 
 const heroProps = {
@@ -19,6 +20,8 @@ const heroProps = {
 		<p>For over 30 years, we’ve had the pleasure of building places where people live and thrive.</p>
 		<p>Whether the job requires design, engineering, or construction, our small team has the experience and work ethic to do it right.</p>
 	</Figure>
+
+	<ServicesSection />
 
 	<SectionTitle title="A better way to build" />
 	<Figure imgSrc="figure/why-icf-figure" moreLink="/why-icf/">

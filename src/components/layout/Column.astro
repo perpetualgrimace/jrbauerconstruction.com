@@ -4,7 +4,7 @@ const {title} = Astro.props;
 
 <div class="column">
   {title &&
-    <h3 class="u-font-xxl">{title}</h3>
+    <h3 class="u-font-xl">{title}</h3>
   }
   <slot />
 </div>
@@ -13,7 +13,7 @@ const {title} = Astro.props;
 	@import '../../styles/global';
 
   .column {
-    padding: $sp-lg $sp-xl;
+    padding: $sp-lg;
     display: flex;
     flex-direction: column;
     background-image: radial-gradient(at top, $navy-medium, $navy-dark 100%);

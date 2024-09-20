@@ -1,0 +1,153 @@
+---
+import Column from '../layout/Column.astro';
+import SectionTitle from './SectionTitle.astro';
+import RetinaImg from '../RetinaImg.astro';
+---
+
+<section class="services-section u-mb-xl">
+  <SectionTitle title="Our services" />
+
+  <div class="columns-section columns-3up">
+    <Column title="Design">
+      <p>From stylish remodels to your custom dream home, we offer comprehensive design services for a smooth experience.</p>
+      <p>Our expert team will work closely with you to turn your vision into reality, ensuring every detail reflects your unique style and needs.</p>
+    </Column>
+    <Column title="Engineering">
+      <p>From roofing to lifting your home to combat flooding, we provide a complete suite of engineering services.</p>
+      <p>Our engineering process integrates our design expertise to transform your dreams into safe and sustainable structures.</p>
+    </Column>
+    <Column title="Construction">
+      <p>As purveyors in Insulated Concrete Form construction, we are committed to building disaster-resistant homes.</p>
+      <p>We provide unparalleled peace of mind and lasting comfort. Our proven methods and extensive experience ensure lasting comfort and durability in your new home.</p>
+    </Column>
+  </div>
+
+  <div class="columns-section columns-asymetric">
+    <Column title="All services">
+      <ul class="bullet-list u-font-lg">
+        <li>Additions</li>
+        <li>Commercial Construction</li>
+        <li>Custom Homes</li>
+        <li>Decks</li>
+        <li>Disaster Recovery & Restoration </li>
+        <li>House Lifting</li>
+        <li>ICF Construction</li>
+        <li>Remodels</li>
+        <li>Renovations</li>
+        <li>Roofing</li>
+        <li>Siding</li>
+        <li>Site Prep & Excavation</li>
+        <li>Soffit & Fascia</li>
+        <li>Windows & Doors</li>
+      </ul>
+    </Column>
+    <Column title="Areas serviced">
+      <div class="column-inner">
+        <ul class="bullet-list u-font-lg">
+          <li>Charlotte County</li>
+          <li>Citrus County</li>
+          <li>Hernando County</li>
+          <li>Hillsborough County</li>
+          <li>Lee County</li>
+          <li>Manatee County</li>
+          <li>Pasco County</li>
+          <li>Pinellas County</li>
+          <li>Polk County</li>
+          <li>Sarasota County</li>
+          <li>Sumter County</li>
+        </ul>
+
+        <RetinaImg file="services/services-map">
+      </div>
+    </Column>
+  </div>
+</section>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+  .services-section .column p {
+    @include font-lg;
+    line-height: 1.5;
+
+    &:not(:last-child) {
+      margin-bottom: 1em;
+    }
+  }
+
+  .services-section li + li {
+    margin-top: 0.375em;
+  }
+
+  .services-section .columns-section {
+    .column {
+      margin-top: $sp-md;
+      margin-bottom: $sp-md;
+    }
+
+    @media (min-width: 900px) {
+			display: flex;
+      flex-wrap: wrap;
+			padding-left: 0;
+			padding-right: 0;
+
+      &.columns-3up {
+        width: 100%;
+
+        .column {
+          flex: 1 0 calc(33.333% - #{$sp-xl});
+        }
+        .column + .column {
+          margin-left: $sp-xl;
+        }
+      }
+
+      &.columns-asymetric {
+        .column:first-child {
+          flex: 1 0 calc(33.333% - #{$sp-xl});
+          margin-right: $sp-xl;
+        }
+        .column:last-child {
+          flex: 2 0 calc(66.666% - #{$sp-xl});
+        }
+      }
+		}
+
+    & .column:first-child ul {
+      @media (min-width: 500px) and (max-width: 899px) {
+        columns: 2;
+      }
+    }
+
+    & .column-inner {
+      display: flex;
+      align-items: flex-start;
+
+      @media (max-width: 499px) {
+        img {
+          @include absolute-expand;
+          object-fit: contain;
+          object-position: 100% 0;
+          opacity: 0.125;
+        }
+      }
+
+      @media (min-width: 500px) {
+        ul {
+          margin-right: $sp-xl;
+          width: 50%;
+        }
+        img {
+          width: 50%;
+          top: -$sp-lg;
+        }
+      }
+    }
+
+    @media (min-width: 900px) {
+      p, li {
+        @include font-md;
+      }
+    }
+  }
+</style>
