@@ -22,6 +22,19 @@ import NavLinks from "./NavLinks.astro";
 	.nav {
 		background-color: $navy-dark;
 		background-image: linear-gradient(to right, $navy-medium, $navy-dark);
+
+		@media (min-width: 450px) {
+			@include box-shadow;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			z-index: 10;
+
+			& + * {
+				margin-top: 2.75rem;
+			}
+		}
 	}
 
 	.nav-inner {
