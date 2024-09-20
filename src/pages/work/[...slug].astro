@@ -38,6 +38,8 @@ const heroProps = {
 
 <Layout slug={slug} title={title} heroProps={heroProps}>
   <section class="job">
+    <JobGallery images={images} slug={slug}  />
+
     <div class="job-description">
       <!-- <p class="job-meta u-mb-lg">
         <span class="job-meta-location">{location}</span>
@@ -58,8 +60,6 @@ const heroProps = {
         nextTitle={nextJob.data.title}
       />
     </div>
-
-    <JobGallery images={images} slug={slug}  />
   </section>
 </Layout>
 
@@ -69,9 +69,9 @@ const heroProps = {
   .job {
     display: flex;
     flex-wrap: wrap;
-    width: 1110px;
+    width: 800px;
     max-width: calc(100% - #{$sp-xxl});
-    padding: $sp-xl $sp-xl $sp-sm $sp-xl;
+    padding: $sp-md $sp-md $sp-sm $sp-md;
     margin-top: -$sp-xxl*2;
     background-image: radial-gradient(at top left, $navy-medium, $navy-dark 100%);
     border-radius: $radius-lg;
@@ -115,6 +115,24 @@ const heroProps = {
 
     &:not(:last-child) {
       margin-bottom: $sp-sm;
+    }
+  }
+
+  @media (min-width: 1080px) {
+    // .job-main-img-list {
+    //   margin: -$sp-md;
+    // }
+    // .job-select-img-list {
+    //   flex-direction: column;
+    //   position: absolute;
+    //   left: -$sp-xxl * 2.375;
+    //   top: -$sp-md;
+    // }
+    .job-description {
+      text-align: center;
+      width: 100%;
+      margin-top: -$sp-md;
+      margin-bottom: -$sp-md;
     }
   }
 </style>

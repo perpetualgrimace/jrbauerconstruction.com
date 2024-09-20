@@ -13,9 +13,11 @@ import RetinaImg from "./RetinaImg.astro";
         </li>
       ))}
     </ul>
+  }
 
+  {images && images.length > 1 &&
     <ul class="job-select-img-list">
-      {images.map((img, i) => (
+    {images.map((img, i) => (
         <li class="job-select-img-item">
           <button class="job-select-img-button" data-index={i} aria-pressed={i === 0}>
             <span class="u-visually-hidden">View project image #{i + 1}</span>
@@ -33,9 +35,14 @@ import RetinaImg from "./RetinaImg.astro";
   .job-main-img-list {
     overflow: hidden;
     border-radius: $radius-md;
+    padding-top: 75%;
+  }
+  .job-main-img-item {
+    @include absolute-expand;
   }
   .job-main-img {
     width: 100%;
+    object-fit: cover;
   }
 
   .job-select-img-list {
@@ -94,24 +101,27 @@ import RetinaImg from "./RetinaImg.astro";
   const mainImages = document.querySelectorAll('.job-main-img-item[data-index]');
   const buttons = document.querySelectorAll('.job-select-img-button[data-index]');
 
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const pressedIndex = button.attributes["data-index"].nodeValue;
+  if (mainImages.length > 1) {
+    buttons.forEach(button => {
+      button.addEventListener('click', () => {
+        const pressedIndex = button.attributes["data-index"].nodeValue;
 
-      if (pressedIndex !== activeIndex) {
-        activeIndex = button.attributes["data-index"].nodeValue;
+        if (pressedIndex !== activeIndex) {
+          activeIndex = button.attributes["data-index"].nodeValue;
 
-        document.querySelector('.job-select-img-button[aria-pressed="true"]').removeAttribute("aria-pressed");
-        button.setAttribute("aria-pressed", true);
+          document.querySelector('.job-select-img-button[aria-pressed="true"]').removeAttribute("aria-pressed");
+          button.setAttribute("aria-pressed", true);
 
-        mainImages.forEach(img => {
-          img.style.display = "none";
+          mainImages.forEach(img => {
+            img.style.display = "none";
 
-          if (img.attributes["data-index"].nodeValue === activeIndex) {
-            img.style.display = "block";
-          };
-        });
-      };
+            if (img.attributes["data-index"].nodeValue === activeIndex) {
+              img.style.display = "block";
+            };
+          });
+        };
+      });
     });
-  });
+  }
+
 </script>

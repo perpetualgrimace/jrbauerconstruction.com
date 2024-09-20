@@ -3,7 +3,7 @@ const {prevSlug, prevTitle, nextSlug, nextTitle} = Astro.props;
 ---
 
 <nav class="job-nav u-mb-lg u-font-sm">
-  <a class="job-nav-link" href={`/work/${prevSlug}`}>&larr; Previous job</a>
+  <a class="job-nav-link" href={`/work/${prevSlug}`}>&larr; Prev<span class="u-visually-hidden">ious</span> job</a>
   <a class="job-nav-link" href="/work/">All jobs</a>
   <a class="job-nav-link" href={`/work/${nextSlug}`}>Next job &rarr;</a>
 </nav>
