@@ -46,17 +46,17 @@ function getPage(url) {
 		margin-right: $sp-xxs;
 	}
 
-	.nav-link {
+	.nav-link:not(.button) {
 		text-decoration: none;
 		padding: 0.5em 0.625em 0.5em 0.625em;
 		color: $white;
 		border-radius: $radius-sm;
 
-		&[aria-current="page"]:not(.button) {
+		&[aria-current="page"] {
 			background: $navy-light;
 		}
 
-		&:not([aria-current="page"]):not(.button) {
+		&:not([aria-current="page"]) {
 			&:hover, &:focus {
 				color: $aqua;
 			}

@@ -30,8 +30,11 @@ const heroProps = {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
-		padding: 0 $sp-lg $sp-xl $sp-lg;
 		top: -$sp-sm;
+
+		&[class] {
+			padding: 0 $sp-lg $sp-xl $sp-lg;
+		}
 
 		.work-item {
 			flex: 1 0 16rem;
