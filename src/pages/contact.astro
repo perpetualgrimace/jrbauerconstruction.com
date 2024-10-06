@@ -116,9 +116,13 @@ const services = [];
 
 	.contact-form {
 		padding: $sp-lg $sp-xl $sp-xl $sp-xl;
-		width: 34rem;
+		max-width: calc(100% - #{$sp-xxl});
 		background-image: radial-gradient(at top, $navy-medium, $navy-dark 100%);
 		border-radius: $radius-lg;
+
+		@media (min-width: 900px) {
+			width: 40rem;
+		}
 	}
 
 	.contact-form input,
