@@ -1,0 +1,29 @@
+<div class="columns-section u-mb-xxl">
+  <slot />
+</div>
+
+<style is:global lang="scss">
+	@import '../../styles/global';
+
+	.columns-section {
+		@media (max-width: 725px) {
+			.column + .column {
+				margin-top: $sp-xl
+			}
+		}
+		@media (min-width: 726px) {
+			display: flex;
+			padding-left: 0;
+			padding-right: 0;
+			width: calc(100% - #{$sp-xxl});
+
+			.column {
+				flex: 1 0 calc(50% - #{$sp-xl});
+			}
+
+			.column + .column {
+				margin-left: $sp-xl;
+			}
+		}
+	}
+</style>

@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BigStat from '../components/BigStat.astro';
+import ColumnsSection from '../components/layout/ColumnsSection.astro';
+import Column from '../components/layout/Column.astro';
 import Figure from '../components/layout/Figure.astro';
 import CTA from '../components/layout/CTA.astro';
 import SectionTitle from '../components/layout/SectionTitle.astro';
@@ -15,25 +17,27 @@ const heroProps = {
 <Layout slug="about" title="About" heroProps={heroProps}>
 	<SectionTitle title="We’re built for this" />
 	<Figure imgSrc="figure/about-us-figure">
-		<p>We’re a one stop shop with 30+ years experience designing, engineering, and building structures that last.</p>
-		<p>Our specialty is <a href="/why-icf/">Insulated Concrete Forms</a>, which is a method of construction that allows us to build safer and more energy efficient buildings more quickly.</p>
-		<p>We can even convert existing plans to ICF!</p>
+		<p>With over 30 years of hands-on construction experience in Florida, J.R. Bauer Construction has built a reputation for delivering strong, sustainable, and disaster-resistant homes.</p>
+
+		<p>Founded more than 20 years ago, we specialize in <a href="/why-icf/">Insulated Concrete Form</a> (ICF) construction, a method known for its superior energy efficiency, durability, and resilience in the face of Florida’s challenging weather conditions.</p>
 	</Figure>
+
+	<ColumnsSection>
+		<Column>
+			<h3 class="u-font-lg u-mb-lg">From the beginning, our commitment to quality craftsmanship and attention to detail has set us apart.</h3>
+
+			<p class="u-font-lg">We pride ourselves on constructing homes that not only meet our clients’ needs but also stand the test of time, providing protection and peace of mind. Our proven track record of success is a testament to our dedication to innovation, safety, and customer satisfaction.</p>
+		</Column>
+		<Column>
+			<h3 class="u-font-lg u-mb-lg">At J.R. Bauer Construction, we don’t just build houses-we build homes for your future.</h3>
+			<p class="u-font-lg">Whether you’re looking for a hurricane-resistant coastal home or a sustainable, energy-efficient property, we have the experience and expertise to bring your vision to life.</p>
+		</Column>
+	</ColumnsSection>
 
 	<div class="big-stat-section u-mb-xxl">
 		<BigStat value="30+" label="years experience" />
 		<BigStat value="300+" label="satisfied customers" />
 	</div>
-
-	<SectionTitle title="Our leadership" />
-	<Figure imgSrc="figure/" title="John Bauer" subtitle="Owner / Founder">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	</Figure>
-	<Figure imgSrc="figure/" title="Jesse Irish" subtitle="Operating Manager">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-		<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-	</Figure>
 
 	<CTA title="Let’s work together"/>
 </Layout>
