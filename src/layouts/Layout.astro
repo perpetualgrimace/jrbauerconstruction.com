@@ -7,23 +7,46 @@ import Footer from "../components/layout/Footer.astro";
 const {
 	title,
 	slug,
-	heroProps
+	heroProps,
+	keywords = "ICF, construction, Insulated Concrete Forms, Florida, contractor",
+	description = "Florida’s first choice for ICF Construction"
 } = Astro.props;
+
+function formatTitle(title) {
+	const companyName = "J.R. Bauer Construction";
+
+	if (title && title !== "Home") {
+		return `${title} | ${companyName}`;
+	}
+
+	return companyName;
+}
+
+const formattedTitle = formatTitle(title);
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
+
+		<title>{formattedTitle}</title>
+		<meta property="twitter:title" content={formattedTitle}>
+		<meta property="og:title" content={formattedTitle}>
+
+		<meta name="description" content={description} />
+		<meta property="twitter:description" content={description}>
+		<meta property="og:description" content={description}>
+
+		<meta name="keywords" content={keywords}>
+
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>
-			{title && title !== "Home" && `${title} | `}
-			J.R. Bauer Construction</title>
+
 		<link rel="preconnect" href="https://use.typekit.net" crossorigin>
 		<link rel="preconnect" href="https://p.typekit.net" crossorigin>
 		<link rel="stylesheet" href="https://use.typekit.net/imo5yjb.css">
+
 		<link rel="icon" type="image/x-icon" href="/favicon.ico">
 	</head>
 
